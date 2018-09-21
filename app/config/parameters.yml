@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: TestFosUser
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: ahmed.kolsi@esprit.tn
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt

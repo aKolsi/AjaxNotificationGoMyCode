@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1>Commande creation</h1>
+
+   <form action="{{ path('commande_add') }}" method="post">
+       <input type="text" name="nom"/>
+       <input type="hidden" name="ville" id="idVille" value="" />
+       <input type="text" name="codeVille" id="codeVille" onkeyup="getNomVille()" />
+       <input type="text" name="nomVille" id="nomVille"/>
+
+
+    <input type="submit" value="Create" />
+    </form>
+    <ul>
+        <li>
+            <a href="{{ path('commande_index') }}">Back to the list</a>
+        </li>
+    </ul>
+    {% block js %}
+
+
+        <script>
+            function getNomVille() {
+
+                var code = document.getElementById('codeVille').value ;
+                $.ajax({
+                    url: "{{ path('get_ville_by_code') }}",
+                    type: 'POST',
+                    data: {code: code},
+
+                }).done(function (response) {
+                    debugger;
+                    var id = response[0]['id'];
+                    var nom = response[0]['nom']
+                    document.getElementById('nomVille').value = nom ;
+                    document.getElementById('idVille').value = id ;
+                });
+
+
+            }
+
+        </script>
+    {% endblock %}
+{% endblock %}

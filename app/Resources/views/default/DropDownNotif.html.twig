@@ -1,0 +1,61 @@
+
+    <li>
+        <span class="dropdown-menu-title">
+            {% if nbrNotif ==1%}
+                 Vous avez une nouvelle notification
+            {% endif %}
+           {% if nbrNotif ==0 %}
+            Aucune nouvelle notification
+           {% endif %}
+            {% if (nbrNotif !=0 and nbrNotif !=1 ) %}
+                Vous avez {{ nbrNotif }} nouvelles notifications
+            {% endif %}
+              </span>
+
+    </li>
+    <li>
+        <div class="drop-down-wrapper">
+            <ul>
+                {% for notif in notifs  %}
+
+
+                <li>
+                    {% if (notif.vu==0) %}
+                    <a href="javascript:;"  style="background-color:rgba(79, 112, 178, 0.32)">
+
+                        <div class="clearfix" >
+
+                            <div class="thread-content">
+                                <span class="author">{{ notif.nomprenom }}</span>
+                                <span class="preview">{{ notif.message }}</span>
+                                <span class="time">
+                                      Nv</span>
+                            </div>
+                        </div>
+                    </a>
+                    {% else %}
+                        <a href="javascript:;">
+
+                         <div class="clearfix" >
+
+                            <div class="thread-content">
+                                <span class="author">{{ notif.nomprenom }}</span>
+                                <span class="preview">{{ notif.message  }}</span>
+                                <span class="time">
+
+
+                               </span>
+                            </div>
+                        </div>
+                    </a>
+                                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </li>
+    <li class="view-all">
+        <a href="{{ path('notification_index') }}">
+            Voir tout <i class="fa fa-arrow-circle-o-right"></i>
+        </a>
+    </li>

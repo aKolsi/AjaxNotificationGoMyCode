@@ -1,0 +1,21 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+app_notification:
+    resource: "@AppBundle/Resources/config/routing/notification.yml"
+    prefix:   /notification
+act_nbr_notifs:
+    path:     /Propvu
+    defaults: { _controller: AppBundle:Default:actualiser_nbr_notification }
+act_nbr_notif:
+    path:     /notif
+    defaults: { _controller: AppBundle:Default:actNbrNotif }
+act_nbr_drop:
+    path:     /drop
+    defaults: { _controller: AppBundle:Default:DropDownNotif }
+    methods:  POST
+app_commande:
+    resource: "@AppBundle/Resources/config/routing/commande.yml"
+    prefix:   /commande

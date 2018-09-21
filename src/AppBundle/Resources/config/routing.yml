@@ -1,0 +1,4 @@
+app_notification:
+    resource: "@AppBundle/Resources/config/routing/notification.yml"
+    prefix:   /notification
+
